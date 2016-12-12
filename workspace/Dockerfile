@@ -46,7 +46,7 @@ ARG PUID=1000
 ARG PGID=1000
 RUN groupadd -g $PGID laradock && \
     useradd -u $PUID -g laradock -m laradock
-    
+
 #####################################
 # Set Timezone
 #####################################
@@ -211,7 +211,7 @@ RUN if [ ${INSTALL_YARN} = true ]; then \
 #####################################
 USER root
 
-ARG INSTALL_AEROSPIKE_EXTENSION=true
+ARG INSTALL_AEROSPIKE_EXTENSION=false
 ENV INSTALL_AEROSPIKE_EXTENSION ${INSTALL_AEROSPIKE_EXTENSION}
 
 # Copy aerospike configration for remote debugging
