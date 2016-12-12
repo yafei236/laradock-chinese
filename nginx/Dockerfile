@@ -6,6 +6,9 @@ ADD nginx.conf /etc/nginx/
 
 ARG PHP_UPSTREAM=php-fpm
 
+# 修改默认源镜像为阿里云
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
+
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache bash \
