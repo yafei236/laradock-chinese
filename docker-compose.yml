@@ -7,7 +7,7 @@ services:
     applications:
         image: tianon/true
         volumes:
-            - ../www:/var/www
+            - ../data/www:/var/www
 #            - ../sample/:/var/www/sample
 
 ### Workspace Utilities Container ###########################
@@ -22,8 +22,8 @@ services:
                 - INSTALL_YARN=false
                 - INSTALL_DRUSH=false
                 - INSTALL_AEROSPIKE_EXTENSION=false
-                - COMPOSER_GLOBAL_INSTALL=false
-                - INSTALL_WORKSPACE_SSH=false
+                - COMPOSER_GLOBAL_INSTALL=true
+                - INSTALL_WORKSPACE_SSH=true
                 - PUID=1000
                 - PGID=1000
                 - NODE_VERSION=stable
@@ -116,7 +116,7 @@ services:
         build:
             context: ./mysql
             args:
-                - MYSQL_DATABASE=homestead
+                - MYSQL_DATABASE=3d_travel_platform
                 - MYSQL_USER=homestead
                 - MYSQL_PASSWORD=secret
                 - MYSQL_ROOT_PASSWORD=root
@@ -134,7 +134,7 @@ services:
         ports:
             - "3306:3306"
         environment:
-            MYSQL_DATABASE: homestead
+            MYSQL_DATABASE: 3d_travel_platform
             MYSQL_USER: homestead
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: root
@@ -279,6 +279,7 @@ services:
         build: ./phpmyadmin
         environment:
             PMA_ARBITRARY: 1
+            PMA_HOST: 192.168.99.100
             MYSQL_USER: homestead
             MYSQL_PASSWORD: secret
             MYSQL_ROOT_PASSWORD: root
