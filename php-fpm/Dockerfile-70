@@ -140,6 +140,17 @@ RUN if [ ${CODEIGNITER} = true ]; then \
      docker-php-ext-install tokenizer \
 ;fi
 
+
+#####################################
+# stomp:
+#####################################
+
+RUN printf "yes" | pecl install stomp-2.0.0 && \
+docker-php-ext-enable stomp
+COPY ./stomp.ini /usr/local/etc/php/conf.d/stomp.ini
+
+
+
 #
 #--------------------------------------------------------------------------
 # Final Touch

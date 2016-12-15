@@ -304,6 +304,8 @@ services:
 
     elasticsearch:
         build: ./elasticsearch
+        environment:
+          ES_JAVA_OPTS: "-Xms2g -Xmx2g"
         volumes:
             - elasticsearch-data:/usr/share/elasticsearch/data
             - elasticsearch-pkugins:/usr/share/elasticsearch/data
