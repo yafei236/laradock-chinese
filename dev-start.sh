@@ -13,5 +13,6 @@ eval "$(docker-machine env default)"
 
 cd ~/dev/laradock-chinese
 #docker-compose build --no-cache mysql redis nginx
-docker-compose build mysql redis nginx php-fpm workspace elasticsearch
-docker-compose up -d mysql redis nginx elasticsearch
+#docker-compose build mysql redis nginx php-fpm workspace elasticsearch
+#docker-compose up -d mysql redis nginx elasticsearch
+docker-compose start php-fpm workspace mysql nginx redis elasticsearch phpmyadmin

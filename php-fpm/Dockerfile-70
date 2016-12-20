@@ -127,7 +127,7 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
 ;fi
 
 # Copy opcache configration
-COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+#COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 #####################################
 # Codeigniter Modifications:
@@ -147,7 +147,7 @@ RUN if [ ${CODEIGNITER} = true ]; then \
 
 RUN printf "yes" | pecl install stomp-2.0.0 && \
 docker-php-ext-enable stomp
-COPY ./stomp.ini /usr/local/etc/php/conf.d/stomp.ini
+# COPY ./stomp.ini /usr/local/etc/php/conf.d/stomp.ini
 
 
 
